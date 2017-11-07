@@ -1,0 +1,20 @@
+{% extends 'sensors/base.html' %}
+{% block title %}Index{% endblock %}
+
+{% block content %}
+<body class='home'>
+	<div id="index">
+	<h2>Home</h2>
+		{% if user.is_authenticated %}
+			<div class="panel-group" id="organisation-accordion" data-value="{{ user.profile.organisation }}">
+			</div>
+		{% else %}
+			<div>
+			<div class="panel-group" id="organisation-accordion" data-value="no_list">
+			</div>
+			<p>You currently have no readings to display. You can either login, sign up for an account, or browse our list of <a href="{% url 'sensors:sensors' %}">rooms</a>.</p>
+			</div>
+		{% endif %}	
+	</div>
+</body>
+{% endblock %}

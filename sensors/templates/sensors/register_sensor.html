@@ -1,0 +1,27 @@
+{% extends 'sensors/base.html' %}
+{% block title %}Register Sensor{% endblock %}
+
+{% block content %}
+<body class="register_sensor">
+	<div class="form">
+		<h2>Register a Sensor</h2>
+		<div id="register_sensor_form">
+			<form name="register_form">
+			{% csrf_token %}
+			{% for field in register_sensor_form %}
+				<p>
+					<div class="fieldWrapper">
+						{{ field.errors }}
+						{{ field.label_tag }} <br>
+						{{ field }}
+					</div>
+				</p>
+			{% endfor %}
+			<input type="hidden" id="uid" value="{{ user.id }}" readonly>
+			<button id="save_form" name="save_form" type="submit">Register</button>
+			</form>
+			</div>
+		</div>
+	</div>
+</body>
+{% endblock %}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+<script type="text/javascript" src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }} /static/sensors/jquery-3.2.1.min.js"></script> 
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://use.fontawesome.com/cb603a1426.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment-with-locales.min.js"></script>
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Home</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static '/sensors/css/style.css' %}">
+
+</head>
+<body id="body">
+	<div id="container">
+		<header id="header">
+			<h1><i class="fa fa-thermometer-half fa-lg" aria-hidden="true"></i> Sensor Project</h1>
+			<nav id="nav_bar">
+				<div id="nav_bar_links">
+					<ul>
+						<li class="active"><a href="{% url 'sensors:index' %}">Home</a></li>
+						<li><a href="{% url 'sensors:sensors' %}">Rooms</a></li>
+						<li><a href="{% url 'sensors:faq' %}">FAQ</a></li>
+						<li><a href="{% url 'sensors:contact' %}">Contact Us</a></li>
+					</ul>
+				</div>
+				<div id="buttons">
+					{% if user.is_authenticated %}
+						<span>Welcome, {{ user.first_name }}</span>
+						<button type="button"><a href="{% url 'sensors:logout' %}">
+						Logout</a></button>
+						<div class="dropdown">
+							<button class="dropdown_button"><i class="fa fa-bars" aria-hidden="true"></i></button>
+							<div class="dropdown_options">
+								<a href="{% url 'sensors:profile' %}">Edit Profile</a>
+								<a href="{% url 'sensors:change_password' %}">Change Password</a>
+								<a href="{% url 'sensors:register_sensor' %}">Register Sensor</a>
+								<a href="{% url 'sensors:remove_sensor' %}">Remove Sensor</a>
+							</div>
+						</div>
+					{% else %}
+						<button type="button"><a href="{% url 'sensors:login' %}">
+						Login</a></button>
+						<button type="button"><a href="{% url 'sensors:signup' %}">
+						Sign Up</a></button>
+					{% endif %}
+				</div>
+			</nav>
+		</header>
+		<div id="content">
+			{% block content %}
+			{% endblock %}
+		</div>
+		<footer>
+		</footer>
+	</div>
+</body>
+<script type="text/javascript" src="{{ STATIC_URL }} /static/sensors/sensors.js"></script>
+</html>

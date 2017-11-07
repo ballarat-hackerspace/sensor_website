@@ -1,0 +1,22 @@
+{% extends 'sensors/base.html' %}
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="form">
+	<h2>Edit Profile</h2>
+	<div id="edit_profile">
+		<form method="post">
+			{% csrf_token %}
+			{% for field in user_form %}
+			<p>
+				<div class="fieldWrapper">
+					{{ field.label_tag }} <br>
+					{{ field }}
+				</div>
+			</p>
+			{% endfor %}
+			<button type="submit">Save changes</button>
+		</form>
+	</div>
+</div>
+{% endblock %}

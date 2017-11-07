@@ -1,0 +1,18 @@
+{% extends 'sensors/base.html' %}
+{% block title %}FAQ{% endblock %}
+
+{% block content %}
+<div>
+	<h2>Frequently Asked Questions</h2>
+	<div id="faq">
+	<h5>What's my core ID?</h5>
+		<p>This is a 24-character ID made up of letters and numbers used to identify your sensor.</p><br>
+	<h5>I've forgotten my core ID. How can I find out what it is?</h5>
+		<p>You can send us a message using the <a href="{% url 'sensors:contact' %}">contact</a> page. Please include both your full personal name and your organisation's name.</p><br>
+	<h5>I've removed a sensor but would like to restore it. Is this possible?</h5>
+		<p>The only way to restore a sensor is to re-register it. Just use the same location information you did the first time and it will be back to normal.</p>
+	<h5></h5>
+		<p></p>
+	</div>
+</div>
+{% endblock %}

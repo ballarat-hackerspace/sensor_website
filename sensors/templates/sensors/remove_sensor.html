@@ -1,0 +1,19 @@
+{% extends 'sensors/base.html' %}
+{% block title %}Add Sensor{% endblock %}
+
+{% block content %}
+<body class="remove_sensor">
+	<div class="form">
+		<h2>Remove a Sensor<h2>
+		<div id="remove_sensor_form">
+			<table id="owned_sensors">
+				<thead>
+					<th>Owned Sensors</th>
+					<th></th>
+				</thead>
+			</table>
+			<input type="hidden" id="uid" value="{{ user.id }}" readonly>
+		</div>
+	</div>
+</body>
+{% endblock %}

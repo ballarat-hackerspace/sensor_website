@@ -1,0 +1,15 @@
+{% extends 'sensors/base.html' %}
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<div id="form">
+	<div id="contact">
+		<h2>Contact Us</h2>
+		<form role="form" action="" method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button type="submit">Send</button>
+		</form>
+	</div>
+</div>
+{% endblock %}
